@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import albumsSlice from './albums/albumsSlice'
 import songsSlice from './songs/songsSlice'
-import authorsSlice from './songwriters/authorsSlice'
+import authorsSlice from './authors/authorsSlice'
 
 
 
