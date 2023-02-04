@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { Card, Space } from 'antd'
 import { PlayCircleTwoTone } from '@ant-design/icons'
 
@@ -46,5 +46,5 @@ const Cards = ({ title,id }) => {
   )
 }
 
-{/* <Link to={`/songs/song/${id}`}> */}
+/* <Link to={`/songs/song/${id}`}> */
   /* </Link> */
