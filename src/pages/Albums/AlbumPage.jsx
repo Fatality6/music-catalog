@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom'
 import { PlayCircleTwoTone } from '@ant-design/icons'
 import Paragraph from 'antd/es/typography/Paragraph'
 import { addSong } from '../../redux/songs/songsSlice'
+import AudioPlayer from 'react-audio-player'
+import LetItBe from '../../common/music/The_Beatles-Let_It_Be-spcs.pub.mp3'
 
 const { Meta } = Card;
 
@@ -67,6 +69,11 @@ export const AlbumPage = () => {
                     return null
                 });
             })}
+            <AudioPlayer
+      src={LetItBe}
+      autoPlay={false}
+      controls={true}
+    />
         </Space>
     </>
     )
@@ -131,6 +138,11 @@ const CollectionCreateForm = ({ open, onCreate, onCancel, id }) => {
                     <Input />
                 </Form.Item>
             </Form>
+            <AudioPlayer
+      src={LetItBe}
+      autoPlay={false}
+      controls={true}
+    />
         </Modal>
     );
 };
