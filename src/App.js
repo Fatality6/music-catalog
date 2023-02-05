@@ -2,7 +2,9 @@ import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/
 import { Layout, Menu, theme } from 'antd'
 import React from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
+import { AlbumPage } from './pages/Albums/AlbumPage'
 import { Albums } from './pages/Albums/Albums'
+import { AuthorPage } from './pages/Authors/AuthorPage'
 import { Authors } from './pages/Authors/Authors'
 import { Songs } from './pages/Songs/Songs'
 
@@ -66,9 +68,9 @@ const App = () => {
             <Routes>
               <Route path='/' element={<Authors />}></Route>
               <Route path='/albums' element={<Albums />}></Route>
-              <Route path="/albums/:id" element={<Albums />}></Route>
+              <Route path="/author/:id" element={<AuthorPage />}></Route>
               <Route path='/songs' element={<Songs />}></Route>
-              <Route path="/songs/:id" element={<Songs />}></Route>
+              <Route path="/album/:id" element={<AlbumPage />}></Route>
             </Routes>
           </Content>
         </Layout>
