@@ -16,7 +16,7 @@ export const Authors = () => {
 }
 
 const Cards = ({ title, img, description, id }) => {
-  return <Link to={`/albums/${id}`}>
+  return <Link to={`/author/${id}`}>
     <Card
       hoverable
       style={{
