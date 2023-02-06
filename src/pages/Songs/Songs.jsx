@@ -18,6 +18,7 @@ export const Songs = () => {
 const Cards = ({ title }) => {
   return (
     <Card
+        hoverable
         style={{
           width: 300,
           marginTop: 16,
