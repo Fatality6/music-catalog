@@ -1,14 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import LetItBe from '../../common/music/The_Beatles-Let_It_Be-spcs.pub.mp3'
-import IMeMine from '../../common/music/The_Beatles-I_Me_Mine.mp3'
-import DigAPony from '../../common/music/The_Beatles-Dig_A_Pony.mp3'
+
 
 const initialState = {
     songs: [
         {
             id: 1,
             title: 'Let It Be',
-            src: LetItBe,
+            src: 'https://muztune.me/file/M2YwOWI5ZmEyNTgyYzY1YzNhYWNlNWEzODE4OTI1OGV8bG9hZA.mp3',
             album: [{
                 albumId: 1,
                 number: 1
@@ -17,7 +15,7 @@ const initialState = {
         {
             id: 2,
             title: 'I Me Mine',
-            src: IMeMine,
+            src: 'https://backingtrackx.com/pesni/9152/the_beatles_i_me_mine.mp3',
             album: [{
                 albumId: 1,
                 number: 2
@@ -26,7 +24,7 @@ const initialState = {
         {
             id: 3,
             title: 'Dig A Pony',
-            src: DigAPony,
+            src: 'https://backingtrackx.com/minusovka/233803/beatles/dig_a_pony.mp3',
             album: [{
                 albumId: 1,
                 number: 3
@@ -35,6 +33,7 @@ const initialState = {
         {
             id: 4,
             title: 'Rain',
+            src: 'https://backingtrackx.com/minusovka/91936/beatles_the/rain.mp3',
             album: [{
                 albumId: 2,
                 number: 1
@@ -43,6 +42,7 @@ const initialState = {
         {
             id: 5,
             title: 'Paperback Writer',
+            src: 'https://jesusful.com/wp-content/uploads/music/2022/07/The_Beatles_-_Paperback_Writer_(Jesusful.com).mp3',
             album: [{
                 albumId: 2,
                 number: 2
@@ -51,6 +51,7 @@ const initialState = {
         {
             id: 6,
             title: 'Revolution',
+            src: 'https://jesusful.com/wp-content/uploads/music/2022/07/The_Beatles_-_Hey_Jude_(Jesusful.com).mp3',
             album: [{
                 albumId: 2,
                 number: 3
@@ -59,6 +60,7 @@ const initialState = {
         {
             id: 7,
             title: 'Dark Lady',
+            src: 'https://muztune.me/file/YzgyZGU5MzY5ZGFmMDk2MGMzZjJjMDliYjY1NGY0M2R8bG9hZA.mp3',
             album: [{
                 albumId: 3,
                 number: 1
@@ -67,6 +69,7 @@ const initialState = {
         {
             id: 8,
             title: 'In Trance',
+            src: 'https://muztune.me/file/ODFiNzllMDZmZjEyN2Q4YTQ2YzI1NWZlNjNmMjQxZTl8bG9hZA.mp3',
             album: [{
                 albumId: 3,
                 number: 2
@@ -75,6 +78,7 @@ const initialState = {
         {
             id: 9,
             title: `Life's Like a River`,
+            src: 'https://muztune.me/file/OWU5NzE4N2NlNzEyMWVkZjZhZmE4ZTBlMWZmZWE5YjN8bG9hZA.mp3',
             album: [{
                 albumId: 3,
                 number: 3
@@ -83,6 +87,7 @@ const initialState = {
         {
             id: 10,
             title: `Tease Me Please Me`,
+            src: 'https://muztune.me/file/ZTc5NTFkZDU2YTE3ZDkxMGNmYzI0NDY5MDEyNjBkNDl8bG9hZA.mp3',
             album: [{
                 albumId: 4,
                 number: 1
@@ -91,6 +96,7 @@ const initialState = {
         {
             id: 11,
             title: `Don't Believe Her`,
+            src: 'https://mp3xi.net/mp3/ZDFhOWMzNjRmMjAzYWRhYzM4YjNhMjFkYjg5M2Y3Y2Z8bG9hZA.mp3',
             album: [{
                 albumId: 4,
                 number: 2
@@ -99,6 +105,7 @@ const initialState = {
         {
             id: 12,
             title: `Wind of Change`,
+            src: 'https://muztune.me/file/NjU2ZWUwNmMzOGRiZGQ1Yjk2MjY2NDYwNzE2MDZmOGR8bG9hZA.mp3',
             album: [{
                 albumId: 4,
                 number: 3
@@ -107,6 +114,7 @@ const initialState = {
         {
             id: 13,
             title: `Do Nothing till You Hear from Me`,
+            src: '',
             album: [{
                 albumId: 5,
                 number: 1
@@ -115,6 +123,7 @@ const initialState = {
         {
             id: 14,
             title: `Drop Me Off in Harlem`,
+            src: '',
             album: [{
                 albumId: 5,
                 number: 2
@@ -123,6 +132,7 @@ const initialState = {
         {
             id: 15,
             title: `I'm Beginning to See the Light`,
+            src: '',
             album: [{
                 albumId: 5,
                 number: 3
@@ -131,6 +141,7 @@ const initialState = {
         {
             id: 16,
             title: `You're Just in Love`,
+            src: '',
             album: [{
                 albumId: 6,
                 number: 1
@@ -139,6 +150,7 @@ const initialState = {
         {
             id: 17,
             title: `When It's Sleepy Time Down South`,
+            src: '',
             album: [{
                 albumId: 6,
                 number: 2
@@ -147,6 +159,7 @@ const initialState = {
         {
             id: 18,
             title: `The Whiffenpoof Song`,
+            src: '',
             album: [{
                 albumId: 6,
                 number: 3
