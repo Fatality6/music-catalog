@@ -1,13 +1,12 @@
-import { Button, Card, Col, Form, Image, Input, Modal, Row, Space } from 'antd'
+import { Button, Card, Col, Form, Image, Input, Modal, Row, Space, Upload } from 'antd'
 import Title from 'antd/es/typography/Title'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { PlayCircleTwoTone } from '@ant-design/icons'
+import { SoundTwoTone, UploadOutlined } from '@ant-design/icons'
 import Paragraph from 'antd/es/typography/Paragraph'
 import { addSong } from '../../redux/songs/songsSlice'
 import AudioPlayer from 'react-audio-player'
-import LetItBe from '../../common/music/The_Beatles-Let_It_Be-spcs.pub.mp3'
 
 const { Meta } = Card;
 
@@ -63,40 +62,45 @@ export const AlbumPage = () => {
                             title={e.title}
                             img={e.img}
                             description={e.description}
-                            number={a.number}>
+                            number={a.number}
+                            src={e.src}
+                            setOpen={() => { setOpen(true); }}
+                            >
                         </Cards>
                     }
                     return null
                 });
             })}
-            <AudioPlayer
-      src={LetItBe}
-      autoPlay={false}
-      controls={true}
-    />
         </Space>
     </>
     )
 }
 
-const Cards = ({ title, number }) => {
+const Cards = ({ title, number, src }) => {
     return (
         <Card
+            hoverable
             style={{
                 width: 300,
                 marginTop: 16,
             }}
         >
             <Meta
-                avatar={<PlayCircleTwoTone style={{ fontSize: '30px' }} />}
+                avatar={<SoundTwoTone style={{ fontSize: '30px' }} />}
                 title={title}
                 description={`Number in album is ${number}`}
+            />
+            <AudioPlayer
+                src={src}
+                autoPlay={false}
+                controls={true}
+                style={{width: 250}}
             />
         </Card>
     )
 }
 
-const CollectionCreateForm = ({ open, onCreate, onCancel, id }) => {
+const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
     const [form] = Form.useForm();
     return (
         <Modal
@@ -138,11 +142,9 @@ const CollectionCreateForm = ({ open, onCreate, onCancel, id }) => {
                     <Input />
                 </Form.Item>
             </Form>
-            <AudioPlayer
-      src={LetItBe}
-      autoPlay={false}
-      controls={true}
-    />
+            <Upload>
+    <Button icon={<UploadOutlined />}>Click to Upload</Button>
+  </Upload>
         </Modal>
     );
 };

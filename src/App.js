@@ -7,6 +7,7 @@ import { Albums } from './pages/Albums/Albums'
 import { AuthorPage } from './pages/Authors/AuthorPage'
 import { Authors } from './pages/Authors/Authors'
 import { Songs } from './pages/Songs/Songs'
+import logo from './common/img/logo.png'
 
 
 const { Header, Content, Sider } = Layout
@@ -23,10 +24,10 @@ const App = () => {
             padding: 0
           }}
         >
+          <div className="logo"><img src={logo} style={{height: 40, margin: 15}} alt='logo'/></div>
         </Header>
       <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
         <Menu
           theme="dark"
           mode="inline"

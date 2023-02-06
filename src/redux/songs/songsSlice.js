@@ -1,10 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import LetItBe from '../../common/music/The_Beatles-Let_It_Be-spcs.pub.mp3'
+import IMeMine from '../../common/music/The_Beatles-I_Me_Mine.mp3'
+import DigAPony from '../../common/music/The_Beatles-Dig_A_Pony.mp3'
 
 const initialState = {
     songs: [
         {
             id: 1,
             title: 'Let It Be',
+            src: LetItBe,
             album: [{
                 albumId: 1,
                 number: 1
@@ -13,6 +17,7 @@ const initialState = {
         {
             id: 2,
             title: 'I Me Mine',
+            src: IMeMine,
             album: [{
                 albumId: 1,
                 number: 2
@@ -21,6 +26,7 @@ const initialState = {
         {
             id: 3,
             title: 'Dig A Pony',
+            src: DigAPony,
             album: [{
                 albumId: 1,
                 number: 3
@@ -220,6 +226,7 @@ export const songsSlice = createSlice({
                 }
                 state.songs.push(newSong)
             }
+            state.status = 'Песня была добавлена'
         },
         [addSong.rejected]: (state) => {
             state.status = 'ошибка'
