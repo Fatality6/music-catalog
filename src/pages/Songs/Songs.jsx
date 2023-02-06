@@ -1,7 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Card, Space } from 'antd'
-import { PlayCircleTwoTone } from '@ant-design/icons'
+import { SoundTwoTone } from '@ant-design/icons'
+import ReactAudioPlayer from 'react-audio-player'
 
 const { Meta } = Card
 
@@ -10,28 +11,31 @@ export const Songs = () => {
 
   return (
     <Space direction='horizontal' size="small" wrap>
-      {songs?.map((e) => <Cards key={e.id} title={e.title}></Cards>)}
+      {songs?.map((e) => <Cards key={e.id} title={e.title} src={e.src}></Cards>)}
     </Space>
   )
 }
 
-const Cards = ({ title }) => {
+const Cards = ({ title, src }) => {
   return (
     <Card
-        hoverable
-        style={{
-          width: 300,
-          marginTop: 16,
-        }}
-      >
-        <Meta
-          avatar={<PlayCircleTwoTone style={{ fontSize: '30px' }}/>}
-          title={title}
-          description="This is the description"
-        />
-      </Card>
+            hoverable
+            style={{
+                width: 650,
+                marginTop: 16,
+            }}
+        >
+            <Meta
+                avatar={<SoundTwoTone style={{ fontSize: '30px' }} />}
+                title={title}
+                description={`Description`}
+            />
+            <ReactAudioPlayer
+                src={src}
+                autoPlay={false}
+                controls={true}
+                style={{width: 600, marginTop: 15}}
+            />
+        </Card>
   )
 }
-
-/* <Link to={`/songs/song/${id}`}> */
-  /* </Link> */
