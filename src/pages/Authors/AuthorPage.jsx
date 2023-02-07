@@ -2,10 +2,10 @@ import { Card, Image, Space } from 'antd'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { Row, Col, Typography } from 'antd';
+import { Row, Col, Typography } from 'antd'
 
-const { Title, Paragraph } = Typography;
-const { Meta } = Card;
+const { Title, Paragraph } = Typography
+const { Meta } = Card
 
 export const AuthorPage = () => {
     const authors = useSelector((state) => state.authors.authors)
@@ -31,7 +31,13 @@ export const AuthorPage = () => {
             <Space direction='horizontal' size="large" wrap style={{ marginTop: 10 }}>
                 {albums.map((e) => {
                     if (e.authorId === params.id) {
-                        return <Cards key={e.id} title={e.title} img={e.img} description={e.description} id={e.id}></Cards>
+                        return <Cards 
+                                    key={e.id} 
+                                    title={e.title} 
+                                    img={e.img} 
+                                    description={e.description} 
+                                    id={e.id}>
+                                </Cards>
                     }
                     return null;
                 })}

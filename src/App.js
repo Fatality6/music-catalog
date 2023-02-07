@@ -1,4 +1,10 @@
-import { LaptopOutlined, NotificationOutlined, UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
+import {
+  LaptopOutlined,
+  NotificationOutlined,
+  UserOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined
+} from '@ant-design/icons'
 import { Layout, Menu, theme } from 'antd'
 import React, { useState } from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
@@ -13,51 +19,56 @@ import logo from './common/img/logo.png'
 const { Header, Content, Sider } = Layout
 
 const App = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false)
   const {
     token: { colorBgContainer },
-  } = theme.useToken();
+  } = theme.useToken()
   return (
     <Layout>
       <Header
-          style={{
-            padding: 0
-          }}
-        >
-          <div className="logo"><img src={logo} style={{height: 40, margin: 15}} alt='logo'/></div>
-        </Header>
-      <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={['1']}
-          items={[
-            {
-              key: '1',
-              icon: <UserOutlined />,
-              label: <Link to={'/'}>All authors</Link>,
-            },
-            {
-              key: '2',
-              icon: <LaptopOutlined />,
-              label: <Link to={'/albums'}>All albums</Link>,
-            },
-            {
-              key: '3',
-              icon: <NotificationOutlined />,
-              label: <Link to={'/songs'}>All songs</Link>,
-            },
-          ]}
-        />
+        style={{
+          padding: 0
+        }}
+      >
+        <div className="logo"><img src={logo} style={{ height: 40, margin: 15 }} alt='logo' /></div>
         {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-            style: {
-              color: "white",
-              margin: 30
-            },
-            onClick: () => setCollapsed(!collapsed),
-          })}
-      </Sider>
+          style: {
+            color: "white",
+            position: 'absolute',
+            top: 12,
+            left: 135,
+            fontSize: 30
+          },
+          onClick: () => setCollapsed(!collapsed),
+        })}
+
+      </Header>
+      <Layout>
+        <Sider trigger={null} collapsible collapsed={collapsed}>
+          <Menu
+            theme="dark"
+            mode="inline"
+            defaultSelectedKeys={['1']}
+            items={[
+              {
+                key: '1',
+                icon: <UserOutlined />,
+                label: <Link to={'/'}>All authors</Link>,
+              },
+              {
+                key: '2',
+                icon: <LaptopOutlined />,
+                label: <Link to={'/albums'}>All albums</Link>,
+              },
+              {
+                key: '3',
+                icon: <NotificationOutlined />,
+                label: <Link to={'/songs'}>All songs</Link>,
+              },
+            ]}
+          />
+
+        </Sider>
         <Layout
           style={{
             padding: '0 24px 24px',
@@ -82,7 +93,7 @@ const App = () => {
         </Layout>
       </Layout>
     </Layout>
-  );
-};
-export default App;
+  )
+}
 
+export default App

@@ -19,23 +19,23 @@ export const Songs = () => {
 const Cards = ({ title, src }) => {
   return (
     <Card
-            hoverable
-            style={{
-                width: 650,
-                marginTop: 16,
-            }}
-        >
-            <Meta
-                avatar={<SoundTwoTone style={{ fontSize: '30px' }} />}
-                title={title}
-                description={`Description`}
-            />
-            <ReactAudioPlayer
-                src={src}
-                autoPlay={false}
-                controls={true}
-                style={{width: 600, marginTop: 15}}
-            />
-        </Card>
+      hoverable
+      style={{
+        width: 650,
+        marginTop: 16,
+      }}
+    >
+      <Meta
+        avatar={<SoundTwoTone style={{ fontSize: '30px' }} />}
+        title={title}
+        description={`Description`}
+      />
+      <ReactAudioPlayer
+        src={src}
+        autoPlay={false}
+        controls={true}
+        style={{ width: 600, marginTop: 15 }}
+      />
+    </Card>
   )
 }
