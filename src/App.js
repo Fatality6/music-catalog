@@ -30,18 +30,17 @@ const App = () => {
           padding: 0
         }}
       >
-        <div className="logo"><img src={logo} style={{ height: 40, margin: 15 }} alt='logo' /></div>
         {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
           style: {
             color: "white",
             position: 'absolute',
-            top: 12,
-            left: 135,
-            fontSize: 30
+            top: 15,
+            left: 28,
+            fontSize: 25
           },
           onClick: () => setCollapsed(!collapsed),
         })}
-
+        <div className="logo"><img src={logo} style={{ height: 40, marginLeft: 86, marginTop: 15 }} alt='logo' /></div>
       </Header>
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
