@@ -9,7 +9,13 @@ export const Authors = () => {
   const authors = useSelector((state) => state.authors.authors)
   return (
     <Space direction='horizontal' size="large" wrap>
-      {authors?.map((e) => <Cards key={e.id} title={e.title} img={e.img} description={e.description} id={e.id}></Cards>)}
+      {authors?.map((e) => <Cards
+        key={e.id}
+        title={e.title}
+        img={e.img}
+        description={e.description}
+        id={e.id}>
+      </Cards>)}
     </Space>
 
   )

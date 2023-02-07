@@ -8,11 +8,16 @@ const { Meta } = Card;
 export const Albums = () => {
   const albums = useSelector((state) => state.albums.albums)
 
-
-
   return (
     <Space direction='horizontal' size="large" wrap>
-      {albums?.map((e) => <Cards key={e.id} title={e.title} img={e.img} description={e.description} id={e.id}></Cards>)}
+      {albums?.map((e) => <Cards
+        key={e.id}
+        title={e.title}
+        img={e.img}
+        description={e.description}
+        id={e.id}>
+      </Cards>
+      )}
     </Space>
   )
 

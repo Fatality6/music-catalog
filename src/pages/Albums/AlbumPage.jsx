@@ -1,12 +1,13 @@
-import { Button, Card, Col, Form, Image, Input, Modal, Row, Space, Upload } from 'antd'
+import { Button, Card, Col, Image, Row, Space } from 'antd'
 import Title from 'antd/es/typography/Title'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { SoundTwoTone, UploadOutlined } from '@ant-design/icons'
+import { SoundTwoTone } from '@ant-design/icons'
 import Paragraph from 'antd/es/typography/Paragraph'
 import { addSong } from '../../redux/songs/songsSlice'
 import AudioPlayer from 'react-audio-player'
+import { CollectionCreateForm } from '../../components/CollectionCreateForm'
 
 const { Meta } = Card;
 
@@ -18,12 +19,11 @@ export const AlbumPage = () => {
     const album = albums.find(album => album.id === id)
     const dispatch = useDispatch()
 
-
     const [open, setOpen] = useState(false);
     const onCreate = (values) => {
         const newSong = { values, id }
         dispatch(addSong(newSong))
-        setOpen(false);
+        setOpen(false)
     };
 
     return (<>
@@ -65,11 +65,11 @@ export const AlbumPage = () => {
                             number={a.number}
                             src={e.src}
                             setOpen={() => { setOpen(true); }}
-                            >
+                        >
                         </Cards>
                     }
                     return null
-                });
+                })
             })}
         </Space>
     </>
@@ -94,57 +94,8 @@ const Cards = ({ title, number, src }) => {
                 src={src}
                 autoPlay={false}
                 controls={true}
-                style={{width: 250, marginTop: 15}}
+                style={{ width: 250, marginTop: 15 }}
             />
         </Card>
     )
 }
-
-const CollectionCreateForm = ({ open, onCreate, onCancel }) => {
-    const [form] = Form.useForm();
-    return (
-        <Modal
-            open={open}
-            title="Add song in album"
-            okText="Add"
-            cancelText="Cancel"
-            onCancel={onCancel}
-            onOk={() => {
-                form
-                    .validateFields()
-                    .then((values) => {
-                        form.resetFields();
-                        onCreate(values);
-                    })
-                    .catch((info) => {
-                        console.log('Validate Failed:', info);
-                    });
-            }}
-        >
-            <Form
-                form={form}
-                layout="vertical"
-                name="form_in_modal"
-                initialValues={{
-                    modifier: 'public',
-                }}
-            >
-                <Form.Item
-                    name="title"
-                    label="Title"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input the title of song!',
-                        },
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
-            </Form>
-            <Upload>
-    <Button icon={<UploadOutlined />}>Click to Upload</Button>
-  </Upload>
-        </Modal>
-    );
-};
