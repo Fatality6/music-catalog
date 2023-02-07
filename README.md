@@ -21,22 +21,26 @@
 - Docker
 ### Шаги:
 1. Склонируйте репозиторий:
-
-`$ git clone https://github.com/Fatality6/music-catalog.git`
-
+```bash
+git clone https://github.com/Fatality6/music-catalog.git
+```
 2. Перейдите в папку с проектом:
-
-`$ cd music-catalog`
-
-3. Соберите образ:
-
-`$ docker build -t music-catalog .`
-
-4. Запустите контейнер:
-
-`$ docker run -p 3000:3000 music-catalog`
-
-5. Откройте в браузере страницу `http://localhost:3000/`.
+```bash
+cd music-catalog
+```
+3. Скопируйте docker-compose инструкцию:
+```bash
+cp docker-compose.example.yml docker-compose.yml
+```
+4. Постройте контейнер
+```bash
+docker-compose build
+```
+5. Запустите контейнер
+```bash
+docker-compose up -d
+```
+6. После запуска перейдите в браузере по адресу `http://localhost:3000/`.
 
 
 ## Деплой рабочего приложения [ТУТ](https://test-catalog-for-qortex.netlify.app/)
