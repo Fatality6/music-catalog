@@ -6,9 +6,9 @@ import authorsSlice from './authors/authorsSlice'
 
 
 export const store = configureStore({
-    reducer: {
-        songs: songsSlice,
-        albums: albumsSlice,
-        authors: authorsSlice
-    }
+  reducer: {
+    songs: songsSlice,
+    albums: albumsSlice,
+    authors: authorsSlice
+  }
 })
