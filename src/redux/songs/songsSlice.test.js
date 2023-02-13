@@ -1,5 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
-
+import songsSlice,{ addSong } from './songsSlice'
 
 const initialState = {
     songs: [
@@ -169,73 +168,31 @@ const initialState = {
     status: null
 }
 
-export const songsSlice = createSlice({
-    name: 'songs',
-    initialState,
-    reducers: {
-        addSong(state,action) {
+const newSong = { values:{title:'newSong'}, id:1}
 
-            let newNumber = 1
-            let songExists = false
-            let songInAlbumExists = false
+describe('songsSlice', () => {
+    it('should add new song item with "addSong" action',() => {
+        const action = { type: addSong.type, payload: newSong }
 
-            // Check if the song with the same title already exists
-            state.songs.forEach(song => {
-                if (song.title === action.payload.values.title) {
-                    songExists = true
+        const result = songsSlice(initialState, action)
 
-                    // Check if the song with the same title and albumId already exists
-                    song.album.forEach(album => {
-                        if (album.albumId === action.payload.id) {
-                            songInAlbumExists = true
-                            //alert("В этом альбомe уже существует такая песня")
-                            return state.status = 'В этом альбомe уже существует такая песня'
-                        }
-                    })
-
-                    // Add the album to the existing song
-                    if (!songInAlbumExists) {
-                        // Find the highest number in the same album
-                        state.songs.forEach(song => {
-                            song.album.forEach(album => {
-                                if (album.albumId === action.payload.id && album.number >= newNumber) {
-                                    newNumber = album.number + 1
-                                }
-                            })
-                        })
-                        song.album.push({ albumId: action.payload.id, number: newNumber })
-                        state.status = 'Песня была добавлена, она уже есть в другом альбоме'
-                    }
-                }
-            })
-
-            //Create new song
-            if (!songExists) {
-                // Find the highest number in the same album
-                state.songs.forEach(song => {
-                    song.album.forEach(album => {
-                        if (album.albumId === action.payload.id && album.number >= newNumber) {
-                            newNumber = album.number + 1
-                        }
-                    })
-                })
-                const newId = state.songs.length + 1
-                const newSong = {
-                    id: newId,
-                    title: action.payload.values.title,
-                    album: [{
-                        albumId: action.payload.id,
-                        number: newNumber
-                    }],
-                }
-                state.songs.push(newSong)
-                state.status = 'Песня была добавлена'
-            }
-            
+        if(result.status === 'Песня была добавлена') {
+            expect(result.songs.length).toBe(19)
+            expect(result.songs[18].title).toBe('newSong')
+            expect(result.songs[18].id).toBe(19)
+            console.log(result.status)
         }
-    }
+        if(result.status === 'Песня была добавлена, она уже есть в другом альбоме') {
+            expect(result.songs.length).toBe(18)
+            console.log(result.status)
+
+        }
+        if(result.status === 'В этом альбомe уже существует такая песня') {
+            expect(result.songs.length).toBe(18)
+            console.log(result.status)
+
+        }
+    })
 })
 
-export const {addSong} = songsSlice.actions
 
-export default songsSlice.reducer

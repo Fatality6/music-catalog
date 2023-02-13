@@ -34,7 +34,7 @@ const Cards = ({ title, src }) => {
         src={src}
         autoPlay={false}
         controls={true}
-        style={{ width: 600, marginTop: 15 }}
+        style={{ width: "600px", marginTop: "15px" }}
       />
     </Card>
   )
