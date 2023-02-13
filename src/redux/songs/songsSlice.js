@@ -188,8 +188,8 @@ export const songsSlice = createSlice({
                     song.album.forEach(album => {
                         if (album.albumId === action.payload.id) {
                             songInAlbumExists = true
-                            //alert("В этом альбомe уже существует такая песня")
-                            return state.status = 'В этом альбомe уже существует такая песня'
+                            alert("В этом альбомe уже существует такая песня")
+                            state.status = 'В этом альбомe уже существует такая песня'
                         }
                     })
 
