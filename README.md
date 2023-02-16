@@ -43,7 +43,7 @@ docker-compose up -d
 6. После запуска перейдите в браузере по адресу `http://localhost:3000/`.
 
 
-## Деплой рабочего приложения [ТУТ](https://test-catalog-for-qortex.netlify.app/)
+## Деплой рабочего приложения [ТУТ](https://tourmaline-mochi-029eae.netlify.app//)
 
 
 ### Автор [Долгов Олег](https://github.com/Fatality6)
